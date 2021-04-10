@@ -2,7 +2,7 @@ import React, { ReactElement } from "react";
 import { Text, View, StyleSheet, Image } from "@react-pdf/renderer";
 import logo from "./upo-logo.png";
 
-import { colors, text } from "../styles";
+import { colors, text, globals } from "../styles";
 
 const styles = StyleSheet.create({
   logo: {
@@ -22,7 +22,8 @@ const styles = StyleSheet.create({
     color: colors.white,
   },
   container: {
-    paddingHorizontal: 50,
+    marginTop: 50,
+    marginHorizontal: 50,
   },
   header: {
     justifyContent: "space-between",
@@ -34,10 +35,6 @@ const styles = StyleSheet.create({
   },
   headerInputLabel: {
     marginBottom: 8,
-  },
-  inlineContent: {
-    flexDirection: "row",
-    alignItems: "center",
   },
 });
 
@@ -70,7 +67,7 @@ export default function Header(): ReactElement | null {
           <View>
             <View
               style={{
-                ...styles.inlineContent,
+                ...globals.inlineContent,
                 ...text.alignEnd,
                 marginBottom: 8,
               }}
@@ -86,7 +83,7 @@ export default function Header(): ReactElement | null {
                 UPO-2021-0001
               </Text>
             </View>
-            <View style={{ ...styles.inlineContent, ...text.alignEnd }}>
+            <View style={{ ...globals.inlineContent, ...text.alignEnd }}>
               <Text style={text.subtitle}>Date Issued:</Text>
               <Text
                 style={{
