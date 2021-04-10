@@ -1,142 +1,51 @@
 import React from "react";
-import logo from "./upo-logo.png";
 import { colors, text } from "./styles";
 
 import {
-	Page,
-	Text,
-	View,
-	Document,
-	StyleSheet,
-	Image,
+  Page,
+  Text,
+  View,
+  Document,
+  StyleSheet,
+  Image,
 } from "@react-pdf/renderer";
-
+import Header from "./Invoice/Header";
+import Table from "./Invoice/Table";
 const styles = StyleSheet.create({
-	page: {
-		flexDirection: "column",
-		backgroundColor: "#fff",
-	},
-	box1: {
-		position: "absolute",
-		top: 0,
-		right: 0,
-		height: 50,
-		width: 50,
-		backgroundColor: colors.brand,
-	},
-	box2: {
-		position: "absolute",
-		bottom: 0,
-		left: 0,
-		height: 50,
-		width: 50,
-		backgroundColor: colors.brand,
-	},
-	logo: {
-		width: 50,
-		height: 50,
-	},
-	logoContainer: {
-		flex: 1,
-	},
-	headerContainer: {
-		flex: 1,
-	},
-	headerChipContainer: {
-		backgroundColor: colors.brand,
-		borderBottomLeftRadius: 20,
-		padding: 10,
-		color: colors.white,
-	},
-	container: {
-		padding: 50,
-	},
-	header: {
-		justifyContent: "space-between",
-		flexDirection: "row",
-		width: "100%",
-	},
-	headerInputFields: {
-		marginTop: 8,
-	},
-	headerInputLabel: {
-		marginBottom: 8,
-	},
-	inlineContent: {
-		flexDirection: "row",
-		alignItems: "center",
-	},
+  page: {
+    flexDirection: "column",
+    backgroundColor: "#fff",
+  },
+  box1: {
+    position: "absolute",
+    top: 0,
+    right: 0,
+    height: 50,
+    width: 50,
+    backgroundColor: colors.brand,
+  },
+  box2: {
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    height: 50,
+    width: 50,
+    backgroundColor: colors.brand,
+  },
 });
 
 function SamplePage() {
-	return (
-		<Document>
-			<Page size="A4" style={styles.page}>
-				{/* the two boxes found on the upperest-right corner and lowest-left */}
-				<View style={styles.box1} />
-				<View style={styles.box2} />
-				<View style={styles.container}>
-					<View style={styles.header}>
-						<Image src={logo} style={styles.logo} />
-						<View style={styles.headerChipContainer}>
-							<Text style={text.header}>INVOICE 1</Text>
-						</View>
-					</View>
-					<Text style={{ ...text.title, marginTop: 8 }}>Invoice to:</Text>
-					<View style={{ ...styles.header, marginTop: 8 }}>
-						<View style={{ maxWidth: 301 }}>
-							<Text style={[text.paragraph, text.alignLeft]}>Ian Salazar</Text>
-							<Text
-								style={{
-									...text.paragraph,
-									...text.alignLeft,
-									marginVertical: 2,
-								}}
-							>
-								Unit G4, Jamac Apartments, Ruby Street, Umali Subdivision,
-								Barangay. Batong Malake, Los Banos, Laguna
-							</Text>
-							<Text style={[text.paragraph, text.alignLeft]}>
-								0961 801 6463
-							</Text>
-						</View>
-						<View>
-							<View
-								style={{
-									...styles.inlineContent,
-									...text.alignEnd,
-									marginBottom: 8,
-								}}
-							>
-								<Text style={text.subtitle}>Invoice #:</Text>
-								<Text
-									style={{
-										...text.subtitle,
-										textDecoration: "underline",
-										marginLeft: 5,
-									}}
-								>
-									UPO-2021-0001
-								</Text>
-							</View>
-							<View style={{ ...styles.inlineContent, ...text.alignEnd }}>
-								<Text style={text.subtitle}>Date Issued:</Text>
-								<Text
-									style={{
-										...text.subtitle,
-										textDecoration: "underline",
-										marginLeft: 5,
-									}}
-								>
-									04/10/2021
-								</Text>
-							</View>
-						</View>
-					</View>
-				</View>
-			</Page>
-		</Document>
-	);
+  return (
+    <Document>
+      <Page size="A4" style={styles.page}>
+        {/* the two boxes found on the upperest-right corner and lowest-left */}
+        <View style={styles.box1} />
+        <View style={styles.box2} />
+        <Header />
+        <Table />
+      </Page>
+    </Document>
+  );
 }
 
 export default SamplePage;
