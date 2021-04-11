@@ -1,5 +1,7 @@
 import React from "react";
 import { View, StyleSheet, Text } from "@react-pdf/renderer";
+import QRCode from "./QRCode";
+
 import {
 	PhoneIcon,
 	FBIcon,
@@ -20,8 +22,14 @@ const styles = StyleSheet.create({
 function Footer() {
 	return (
 		<>
-			<View style={[globals.row, styles.container]}>
-				<View style={globals.col1}>
+			<View
+				style={{
+					...styles.container,
+					flexDirection: "row",
+					justifyContent: "space-between",
+				}}
+			>
+				<View>
 					<Text style={[text.alignLeft, text.title]}>Payment Info:</Text>
 					<View>
 						<Text style={{ ...text.paragraph, marginTop: 10 }}>
@@ -67,8 +75,8 @@ function Footer() {
 						</View>
 					</View>
 				</View>
-				<View style={globals.col1}>
-					<Text style={[text.alignLeft, text.title]}>Payment Info</Text>
+				<View>
+					<QRCode height={126} width={126} />
 				</View>
 			</View>
 			<View style={{ marginTop: 15 }}>
