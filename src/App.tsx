@@ -1,7 +1,7 @@
 import React from "react";
-import logo from "./logo.svg";
-import { PDFViewer } from "@react-pdf/renderer";
 
+import { PDFViewer } from "@react-pdf/renderer";
+// import { Call as CallIcon } from "react-ionicons";
 import SamplePage from "./components/SamplePage";
 import "./App.css";
 
