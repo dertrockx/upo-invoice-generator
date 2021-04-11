@@ -1,6 +1,5 @@
 import React from "react";
 import { Page, View, Document, StyleSheet } from "@react-pdf/renderer";
-
 import { colors } from "./styles";
 import Header from "./Invoice/Header";
 import Table from "./Invoice/Table";
